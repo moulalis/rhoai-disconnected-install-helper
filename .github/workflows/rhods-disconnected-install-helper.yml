@@ -15,20 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Validate branch name format
-      run: |     
-        rhoai_branch="${{ github.event.inputs.branch_name }}"
-        if [[ -z "$rhoai_branch" ]]; then
-          echo "⚠️ No branch name provided. Skipping validation..."
-        else
-          # Check if branch name follows "rhoai-<number>.<number>" format
-          if [[ "$rhoai_branch" =~ ^rhoai-[0-9]+\.[0-9]+$ ]]; then
-            echo "✅ Valid format: $rhoai_branch"
-          else
-            echo "❌ Invalid format! Expected rhoai-x.y (e.g., rhoai-2.18) but found $rhoai_branch"
-            exit 1
-          fi
-        fi
     - name: Run rhoai-disconnected-helper.sh script
       run: |
         chmod +x rhoai-disconnected-helper.sh
