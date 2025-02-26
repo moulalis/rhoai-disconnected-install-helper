@@ -18,7 +18,8 @@ jobs:
       run: |
         chmod +x rhoai-disconnected-helper.sh
         chmod +x rhoai-dih.sh
-        ./rhoai-disconnected-helper.sh "${{ github.event.inputs.branch_name }}"
+        ./rhoai-disconnected-helper.sh
+      shell: bash
     - name: Pull latest changes from main branch
       run: git pull origin main
       shell: bash
