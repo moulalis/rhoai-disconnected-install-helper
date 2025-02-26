@@ -29,7 +29,6 @@ jobs:
             exit 1
           fi
         fi
-        shell: bash
     - name: Run rhoai-disconnected-helper.sh script
       run: |
         chmod +x rhoai-disconnected-helper.sh
