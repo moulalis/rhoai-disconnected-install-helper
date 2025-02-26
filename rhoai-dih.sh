@@ -433,7 +433,7 @@ parse_args() {
       exit
       ;;
     --rhoai-version | -v)
-      rhods_version="$2"
+      rhods_version="$1"
       file_name="$rhods_version.md"
       shift
       shift
