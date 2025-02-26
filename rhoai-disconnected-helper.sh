@@ -13,6 +13,7 @@ function validate_rhoai_branch() {
 function main() {
   set_defaults
   parse_args "$@"
+  rhods_version="${2:-}"
 
   if [[ -n "$rhods_version" ]]; then
     validate_rhoai_branch "$rhods_version"  # Validate user input
