@@ -6,7 +6,7 @@ function main(){
   set_defaults
   parse_args "$@"
 
-  if [[ -n "$1" ]]; then
+  if [[-n "${1:-}" ]]; then
     releases=("$1")
   else
     releases=$(yq e '.releases[]' releases.yaml)
