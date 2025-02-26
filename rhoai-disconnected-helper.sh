@@ -9,10 +9,9 @@ function main(){
 
   if [ -z "$rhoai_branch" ]; then
     releases=$(yq e '.releases[]' releases.yaml)
-  fi
   else
     releases=("$rhoai_branch")
-
+  fi
   echo "$release"
   
   for release in $releases; do
