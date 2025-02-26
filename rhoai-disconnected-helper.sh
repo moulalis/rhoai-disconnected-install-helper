@@ -7,13 +7,15 @@ function main(){
   parse_args "$@"
 
   if [[ -n "${1:-}" ]]; then
-    releases=("$1")
+    releases=("$1")  # Store input argument as an array
   else
-    releases=$(yq e '.releases[]' releases.yaml)
+    # Use `mapfile` to correctly read multiple values from YAML
+    mapfile -t releases < <(yq e '.releases[]' releases.yaml)
   fi
-  echo "$release"
-  
-  for release in $releases; do
+
+  echo "Releases: ${releases[@]}"
+
+  for release in "${releases[@]}"; do  # Correct way to loop over an array
       branch_main=""
      
       if [ -z "$rhods_version" ]; then
